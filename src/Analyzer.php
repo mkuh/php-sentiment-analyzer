@@ -16,10 +16,10 @@ class Analyzer
 
     private $current_sentitext = null;
 
-    public function __construct($lexicon_file = "Lexicons/vader_sentiment_lexicon.txt",$emoji_lexicon='Lexicons/emoji_utf8_lexicon.txt')
+    public function __construct($lexicon_file =  __DIR__ . DIRECTORY_SEPARATOR . "Lexicons/vader_sentiment_lexicon.txt",$emoji_lexicon='Lexicons/emoji_utf8_lexicon.txt')
     {
         //Not sure about this as it forces lexicon file to be in the same directory as executing script
-        $this->lexicon_file = __DIR__ . DIRECTORY_SEPARATOR . $lexicon_file;
+        $this->lexicon_file = $lexicon_file;
         $this->lexicon = $this->make_lex_dict();
 
         $this->emoji_lexicon = __DIR__ . DIRECTORY_SEPARATOR .$emoji_lexicon;
